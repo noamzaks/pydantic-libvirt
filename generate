@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for f in libvirt/src/conf/schemas/*.rng; do
+    uv run relaxng-to-pydantic $f > src/pydantic_libvirt/$(basename $f .rng).py
+done

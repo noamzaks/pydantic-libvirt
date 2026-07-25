@@ -1,0 +1,26 @@
+[project]
+name = "pydantic-libvirt"
+version = "0.1.0"
+description = "Pydantic XML classes generated from libvirt's RelaxNG schemas"
+readme = "README.md"
+authors = [{ name = "Noam Zaks", email = "noam@noamzaks.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.13.4",
+    "pydantic-xml>=2.21.0",
+]
+
+[project.scripts]
+pydantic-libvirt = "pydantic_libvirt:main"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "relaxng-to-pydantic",
+]
+
+[tool.uv.sources]
+relaxng-to-pydantic = { git = "https://github.com/noamzaks/relaxng-to-pydantic" }
